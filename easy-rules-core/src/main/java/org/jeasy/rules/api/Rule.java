@@ -48,6 +48,9 @@ public interface Rule extends Comparable<Rule> {
      */
     int DEFAULT_PRIORITY = Integer.MAX_VALUE - 1;
 
+
+    boolean DEFAULT_SKIP = false;
+
     /**
      * Getter for rule name.
      * @return the rule name
@@ -70,6 +73,10 @@ public interface Rule extends Comparable<Rule> {
      */
     default int getPriority() {
         return DEFAULT_PRIORITY;
+    }
+
+    default boolean isSkip(){
+        return DEFAULT_SKIP;
     }
 
     /**

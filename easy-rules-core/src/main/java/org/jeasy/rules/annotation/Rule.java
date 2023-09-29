@@ -57,4 +57,6 @@ public @interface Rule {
      */
     int priority() default org.jeasy.rules.api.Rule.DEFAULT_PRIORITY;
 
+    boolean skip() default org.jeasy.rules.api.Rule.DEFAULT_SKIP;
+
 }

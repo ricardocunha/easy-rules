@@ -53,7 +53,9 @@ public class BasicRule implements Rule {
      */
     protected int priority;
 
-    /**
+    private boolean skip = false;
+
+     /**
      * Create a new {@link BasicRule}.
      */
     public BasicRule() {
@@ -92,6 +94,13 @@ public class BasicRule implements Rule {
         this.priority = priority;
     }
 
+    public BasicRule(final String name, final String description, final int priority, final boolean skip) {
+        this.name = name;
+        this.description = description;
+        this.priority = priority;
+        this.skip = skip;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -124,6 +133,14 @@ public class BasicRule implements Rule {
 
     public void setPriority(final int priority) {
         this.priority = priority;
+    }
+
+    public boolean isSkip() {
+        return skip;
+    }
+
+    public void setSkip(final boolean skip){
+        this.skip = skip;
     }
 
     /*

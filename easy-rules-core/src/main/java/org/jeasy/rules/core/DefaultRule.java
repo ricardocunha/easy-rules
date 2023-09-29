@@ -34,8 +34,8 @@ class DefaultRule extends BasicRule {
     private final Condition condition;
     private final List<Action> actions;
 
-    DefaultRule(String name, String description, int priority, Condition condition, List<Action> actions) {
-        super(name, description, priority);
+    DefaultRule(String name, String description, int priority, Condition condition, List<Action> actions, boolean skip) {
+        super(name, description, priority, skip);
         this.condition = condition;
         this.actions = actions;
     }

@@ -62,6 +62,8 @@ public class RuleProxy implements InvocationHandler {
     private Set<ActionMethodOrderBean> actionMethods;
     private Method compareToMethod;
     private Method toStringMethod;
+
+    private Boolean skip;
     private org.jeasy.rules.annotation.Rule annotation;
 
     private static final RuleDefinitionValidator ruleDefinitionValidator = new RuleDefinitionValidator();
@@ -113,6 +115,8 @@ public class RuleProxy implements InvocationHandler {
                 return hashCodeMethod();
             case "toString":
                 return toStringMethod();
+            case "isSkip":
+                return getRuleSkip();
             default:
                 return null;
         }
@@ -326,6 +330,14 @@ public class RuleProxy implements InvocationHandler {
         return this.name;
     }
 
+
+    private boolean getRuleSkip() {
+        if (this.skip == null) {
+            org.jeasy.rules.annotation.Rule rule = getRuleAnnotation();
+            this.skip = rule.skip();
+        }
+        return this.skip;
+    }
     private String getRuleDescription() {
         if (this.description == null) {
             // Default description = "when " + conditionMethodName + " then " + comma separated actionMethodsNames

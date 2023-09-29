@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jeasy</groupId>
         <artifactId>easy-rules</artifactId>
-        <version>4.1.1-SNAPSHOT</version>
+        <version>5.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>easy-rules-jexl</artifactId>
@@ -64,7 +64,6 @@
             <artifactId>commons-jexl3</artifactId>
             <version>${jexl.version}</version>
         </dependency>
-
         <!-- test dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>

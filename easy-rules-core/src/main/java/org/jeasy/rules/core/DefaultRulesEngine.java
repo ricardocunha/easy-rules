@@ -119,6 +119,9 @@ public final class DefaultRulesEngine extends AbstractRulesEngine {
                         LOGGER.debug("Next rules will be skipped since parameter skipOnFirstAppliedRule is set");
                         break;
                     }
+                    if (rule.isSkip()){
+                        break;
+                    }
                 } catch (Exception exception) {
                     LOGGER.error("Rule '" + name + "' performed with error", exception);
                     triggerListenersOnFailure(rule, exception, facts);

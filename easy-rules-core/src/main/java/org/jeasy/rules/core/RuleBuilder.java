@@ -44,6 +44,13 @@ public class RuleBuilder {
     private Condition condition = Condition.FALSE;
     private final List<Action> actions = new ArrayList<>();
 
+    private boolean skip = false;
+
+    public RuleBuilder skip(boolean skip) {
+        this.skip = skip;
+        return this;
+    }
+
     /**
      * Set rule name.
      *
@@ -105,6 +112,6 @@ public class RuleBuilder {
      * @return a new rule instance
      */
     public Rule build() {
-        return new DefaultRule(name, description, priority, condition, actions);
+        return new DefaultRule(name, description, priority, condition, actions, skip);
     }
 }
